@@ -12,11 +12,18 @@ $mb_post_datetime = date('Y-m-d', time());
 $mb_title   = trim($_POST['title']);
 $mb_content = trim($_POST['content']);
 
+if(!$mb_title || !$mb_content){
+  echo "<script> alert('제목과 내용을 입력해주세요'); </script>";
+  echo "<script> location.replace('./writeboard.php'); </script>";
+  exit;
+}
+if($mb_content)
 $sql = "INSERT INTO notice
                 SET mb_id = '$mb_id',
                     mb_post_datetime = '$mb_post_datetime',
                     mb_title = '$mb_title',
-                    mb_content = '$mb_content'";
+                    mb_content = '$mb_content',
+                    mb_look_number = '0'";
 $result = mysqli_query($conn, $sql);
 
 

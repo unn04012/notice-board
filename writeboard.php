@@ -1,3 +1,7 @@
+<?php
+include("../login/connect.php");
+echo $_SESSION['ss_mb_id'];
+ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -14,6 +18,9 @@
       left : 50%;
       transform : translate(-50%, -50%);
     }
+    .noticeboard_form{
+      text-align  : center;
+    }
     table{
       border : 2px solid black;
       border-collapse : collapse;
@@ -25,7 +32,8 @@
   </head>
   <body>
     <div class="noticeboard_form">
-      <form class="" action="write_check.php" method="post">
+      <h1>글쓰기</h1>
+      <form class="" action="writeboard_update.php" method="post">
         <table>
           <tr>
             <th>제목</th>
