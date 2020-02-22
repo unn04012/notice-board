@@ -8,7 +8,7 @@ if(!$mb_id){
   echo "<script> location.replace('../login/login.php'); </script>";
 }
 
-$mb_post_datetime = date('Y-m-d', time());
+$mb_post_datetime = date('Y-m-d H:i:s', time());
 $mb_title   = trim($_POST['title']);
 $mb_content = trim($_POST['content']);
 
