@@ -99,7 +99,9 @@ include("../login/connect.php");
       <table>
         <thead>
           <tr>
+          <?php if($mb_id == "admin"){ ?>
             <th>선택</th>
+          <?php } ?>
             <th>번호</th>
             <th>제목</th>
             <th>글쓴이</th>
@@ -113,7 +115,9 @@ include("../login/connect.php");
            ?>
           <tr>
             <form class="" action="delete.php" method="post" onsubmit = "return checkform(this);">
+              <?php if($mb_id == "admin"){ ?>
               <td><input type="checkbox" name="check_list[]" value="<?php echo $list[$i]['mb_no'] ?>"></td>
+              <?php } ?>
               <td id = "number" class = "notice"><?php echo $list[$i]['mb_no'] ?></td>
               <td id = "title" class = "notice"><a href="./board.php?number=<?php echo $list[$i]['mb_no'] ?>"><?php echo $list[$i]['mb_title'] ?></a> </td>
               <td class = "notice"><?php echo $list[$i]['mb_id'] ?></td>
@@ -124,7 +128,9 @@ include("../login/connect.php");
           <?php } ?>
         </table>
             <div id="write">
-              <input type="submit" name="" value="선태삭제">
+            <?php if($mb_id == "admin"){ ?>
+              <input type="submit" name="" value="선택삭제">
+            <?php } ?>
               <a href="../login/logout.php">로그아웃</a>
               <a href="./writeboard.php">글쓰기</a>
             </div>
@@ -149,7 +155,7 @@ include("../login/connect.php");
       }
       if(cnt==0){
         alert("선택된 체크박스가 없습니다.");
-        return false;        
+        return false;
       }
     }
   </script>

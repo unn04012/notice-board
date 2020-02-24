@@ -16,7 +16,6 @@ include("../login/connect.php");
         border : 2px solid black;
         text-align : center;
         padding : 20px;
-        width : 500px;
       }
       .title h1{
         border-bottom : 1px solid gray;
@@ -52,8 +51,8 @@ include("../login/connect.php");
         </div>
         <div class="content">
           <h2>내용</h2>
-          <p><?php echo $list['mb_content']?></p> 
-          <img src="<?php echo $list_image['file_path'] ?>" alt="" width ="400">
+          <p><?php echo $list['mb_content']?></p>
+          <img src="<?php echo $list_image['file_path'] ?>" alt="" width ="500">
         </div>
     </div>
   </body>
