@@ -28,14 +28,26 @@ include("../login/connect.php");
       border : 1px solid gray;
     }
     .title{
-      width : 99%;
+      width : 50%;
+
+    }
+    th{
+      padding : 0 5px;
+    }
+    td{
+      border-right : 1px solid black;
+      text-align : left;
+      padding : 5px  20px;
+    }
+    #file{
+      text-align  : left;
     }
     </style>
   </head>
   <body>
     <div class="noticeboard_form">
       <h1>글쓰기</h1>
-      <form class="" action="writeboard_update.php" method="post">
+      <form class="" action="writeboard_update.php" method="post" enctype = "multipart/form-data">
         <table>
           <tr>
             <th>제목</th>
@@ -44,6 +56,11 @@ include("../login/connect.php");
           <tr>
             <th>내용</td>
             <td><textarea name="content" rows="8" cols="80"></textarea> </td>
+          </tr>
+          <tr>
+            <th>파일</th>
+            <td colspan = "2" id = "file"><input type="file" name="myfile" value="파일선택 "></td>
+          </tr>
         </table>
         <input type="submit" name="" value="올리기">
       </form>

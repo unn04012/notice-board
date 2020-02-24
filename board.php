@@ -31,6 +31,16 @@ include("../login/connect.php");
     $number = $_GET['number'];
     $sql = "SELECT * FROM notice WHERE mb_no = $number";
     $sql_increase_look = "UPDATE notice SET mb_look_number = mb_look_number+1 WHERE mb_no = $number";
+    $sql_image = "SELECT * FROM upload_file WHERE file_no = $number";
+
+
+    $result_image = mysqli_query($conn, $sql_image);
+    if($result_image){
+      $list_image = mysqli_fetch_assoc($result_image);
+    }else{
+      $list_image['file_path'] = "";
+    }
+
     mysqli_query($conn, $sql_increase_look);
     $result = mysqli_query($conn, $sql);
     $list = mysqli_fetch_assoc($result);
@@ -42,7 +52,8 @@ include("../login/connect.php");
         </div>
         <div class="content">
           <h2>내용</h2>
-          <?php echo $list['mb_content'] ?>
+          <p><?php echo $list['mb_content']?></p> 
+          <img src="<?php echo $list_image['file_path'] ?>" alt="" width ="400">
         </div>
     </div>
   </body>
