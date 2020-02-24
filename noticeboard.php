@@ -90,19 +90,16 @@ include("../login/connect.php");
         break;
       }
     }
-    $list_date  = array();
-    $sql = "SELECT date_format(mb_post_datetime,'%Y-%m-%d')FROM notice";
+    $number = "SELECT mb_no FROM notice ";
     $result = mysqli_query($conn, $sql);
-    for($i = 0; $row=mysqli_fetch_assoc($result); $i++){
-      $list_date[$i] = $row;
-      echo $list_date[$i]["date_format(mb_post_datetime,'%Y-%m-%d'"].'</br>';
-    }
+    $reuslt_number = mysqli_fetch_assoc($result);
      ?>
     <div class="noticeboard_form">
       <h1>게시판</h1>
       <table>
         <thead>
           <tr>
+            <th>선택</th>
             <th>번호</th>
             <th>제목</th>
             <th>글쓴이</th>
@@ -115,18 +112,23 @@ include("../login/connect.php");
             for($i=0; $i<count($list); $i++){
            ?>
           <tr>
-            <td id = "number" class = "notice"><?php echo $list[$i]['mb_no'] ?></td>
-            <td id = "title" class = "notice"><a href="./board.php?number=<?php echo $list[$i]['mb_no'] ?>"><?php echo $list[$i]['mb_title'] ?></a> </td>
-            <td class = "notice"><?php echo $list[$i]['mb_id'] ?></td>
-            <td id = "date" class = "notice"><?php echo date("Y-m-d", strtotime($list[$i]['mb_post_datetime'])) ?></td>
-            <td id = "see_count" class = "notice"><?php echo $list[$i]['mb_look_number'] ?></td>
-          </tr>
+            <form class="" action="delete.php" method="post" onsubmit = "return checkform(this);">
+              <td><input type="checkbox" name="check_list[]" value="<?php echo $list[$i]['mb_no'] ?>"></td>
+              <td id = "number" class = "notice"><?php echo $list[$i]['mb_no'] ?></td>
+              <td id = "title" class = "notice"><a href="./board.php?number=<?php echo $list[$i]['mb_no'] ?>"><?php echo $list[$i]['mb_title'] ?></a> </td>
+              <td class = "notice"><?php echo $list[$i]['mb_id'] ?></td>
+              <td id = "date" class = "notice"><?php echo date("Y-m-d", strtotime($list[$i]['mb_post_datetime'])) ?></td>
+              <td id = "see_count" class = "notice"><?php echo $list[$i]['mb_look_number'] ?></td>
+              </tr>
         </tbody>
-      <?php } ?>
-      </table>
-      <div id="write">
-        <a href="./writeboard.php">글쓰기</a>
-      </div>
+          <?php } ?>
+        </table>
+            <div id="write">
+              <input type="submit" name="" value="선태삭제">
+              <a href="../login/logout.php">로그아웃</a>
+              <a href="./writeboard.php">글쓰기</a>
+            </div>
+          </form>
       <div class="paging">
         <a href="<?php $PHP_SELF ?>?page=<?php echo  $s_page-1 ?>">이전</a>
         <?php for($p = $s_page; $p<=$e_page; $p++){?>
@@ -136,4 +138,19 @@ include("../login/connect.php");
       </div>
     </div>
   </body>
+  <script type="text/javascript">
+    function checkform(frm){
+      var chkbox = frm['check_list[]'];
+      var cnt = 0;
+      for(var i = 0; i < chkbox.length; i++){
+        if(chkbox[i].checked){
+          cnt++;
+        }
+      }
+      if(cnt==0){
+        alert("선택된 체크박스가 없습니다.");
+        return false;        
+      }
+    }
+  </script>
 </html>
