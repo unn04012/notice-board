@@ -1,6 +1,5 @@
 <?php
 include("../login/connect.php");
-echo $_SESSION['ss_mb_id'];
  ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -28,6 +27,9 @@ echo $_SESSION['ss_mb_id'];
     table tr{
       border : 1px solid gray;
     }
+    .title{
+      width : 99%;
+    }
     </style>
   </head>
   <body>
@@ -37,7 +39,7 @@ echo $_SESSION['ss_mb_id'];
         <table>
           <tr>
             <th>제목</th>
-            <td><input type="text" name="title" value=""> </td>
+            <td><input type="text" name="title" value="" class = "title"> </td>
           </tr>
           <tr>
             <th>내용</td>
