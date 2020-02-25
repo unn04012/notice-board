@@ -6,24 +6,7 @@ include("../login/connect.php");
   <head>
     <meta charset="utf-8">
     <title></title>
-    <style media="screen">
-      .board_form{
-        position : absolute;
-        top : 50%;
-        left : 50%;
-        transform : translate(-50%, -50%);
-
-        border : 2px solid black;
-        text-align : center;
-        padding : 20px;
-      }
-      .title h1{
-        border-bottom : 1px solid gray;
-      }
-      .content h2{
-        border-bottom : 1px solid gray;
-      }
-    </style>
+    <link rel="stylesheet" href="./noticeboard.css"> 
   </head>
   <body>
     <?php

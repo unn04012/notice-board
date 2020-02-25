@@ -1,0 +1,114 @@
+body{
+  margin : 0;
+  padding : 0;
+  font-family : sans-serif;
+  background : url(../login/bg.jpg) no-repeat center;
+  height : 100vh;
+  color : white;
+}
+.noticeboard_form{
+  position : absolute;
+  top : 50%;
+  left : 50%;
+  transform : translate(-50%, -50%);
+  padding : 20px;
+  background : rgba(0,0,0,0.6);
+}
+.noticeboard_form h1{
+  text-align : center;
+}
+table{
+  border : 2px solid white;
+  border-collapse : collapse;
+  text-align : center;
+}
+table tr{
+  border : 1px solid gray;
+}
+.td_center{
+  text-align : center;
+}
+#title{
+  width : 300px;
+}
+#title a{
+  color : white;
+  text-decoration : none;
+  transition: 0.4s;
+}
+#title a:hover{
+  color : #1ad474;
+}
+#date{
+  width : 200px;
+}
+#number{
+  width : 50px;
+}
+#see_count{
+  width : 75px;
+}
+.write{
+  text-align : right;
+  padding : 0 15px;
+}
+.paging{
+  text-align : center;
+}
+.paging a, .write a{
+  color : white;
+  text-decoration : none;
+  transition : 0.4s;
+}
+.paging a:hover, .write a:hover{
+  color : #1ad474;
+}
+.board_form{
+  border : 2px solid white;
+  text-align : center;
+  padding : 20px;
+}
+img{
+  border : 2px solid white;
+  width : 400px;
+}
+.title h1{
+  border-bottom : 1px solid gray;
+}
+.content h2{
+  border-bottom : 1px solid gray;
+}
+
+.writeboard_form{
+  position : absolute;
+  top : 50%;
+  left : 50%;
+  transform : translate(-50%, -50%);
+  padding : 20px;
+  text-align  : center;
+}
+.writeboard_form td{
+  border-right : 2px solid white;
+  text-align : left;
+  padding : 5px  20px;
+}
+#file{
+  text-align  : left;
+}
+
+.center{
+  padding : 0 5px;
+}
+input[type=submit]{
+  background : black;
+  color : white;
+  border-radius : 10px;
+  padding : 10px 5px;
+  margin-top : 20px;
+  transition : 0.4s;
+  cursor : pointer;
+  outline : none;
+}
+input[type=submit]:hover{
+  background : #1ad474;  
+}

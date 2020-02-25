@@ -6,52 +6,8 @@ include("../login/connect.php");
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="./noticeboard.css">
   </head>
-  <style media="screen">
-  body{
-    margin : 0;
-    padding : 0;
-  }
-  .noticeboard_form{
-    position : absolute;
-    top : 50%;
-    left : 50%;
-    transform : translate(-50%, -50%);
-  }
-  .noticeboard_form h1{
-    text-align : center;
-  }
-  table{
-    border : 2px solid black;
-    border-collapse : collapse;
-    text-align : center;
-  }
-  table tr{
-    border : 1px solid gray;
-  }
-  .td_center{
-    text-align : center;
-  }
-  #title{
-    width : 300px;
-  }
-  #date{
-    width : 200px;
-  }
-  #number{
-    width : 50px;
-  }
-  #see_count{
-    width : 75px;
-  }
-  #write{
-    text-align : right;
-    padding : 0 15px;
-  }
-  .paging{
-    text-align : center;
-  }
-  </style>
   <body>
     <?php
     $mb_id = $_SESSION['ss_mb_id'];
@@ -127,7 +83,7 @@ include("../login/connect.php");
         </tbody>
           <?php } ?>
         </table>
-            <div id="write">
+            <div class="write">
             <?php if($mb_id == "admin"){ ?>
               <input type="submit" name="" value="선택삭제">
             <?php } ?>
@@ -158,5 +114,6 @@ include("../login/connect.php");
         return false;
       }
     }
+    var
   </script>
 </html>
