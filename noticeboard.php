@@ -33,10 +33,6 @@ include("../login/connect.php");
     if($pageNum <= $e_page){
       $e_page = $pageNum;
     }
-
-
-
-
     $s_point = ($page-1) * $list_page;
     $sql = "SELECT * FROM notice ORDER BY mb_no desc LIMIT $s_point,$list_page";
     $result = mysqli_query($conn, $sql);
@@ -66,13 +62,11 @@ include("../login/connect.php");
           </tr>
         </thead>
         <tbody>
-          <?php
-            for($i=0; $i<count($list); $i++){
-           ?>
+          <?php for($i=0; $i<count($list); $i++){?>
           <tr>
             <form class="" action="delete.php" method="post" onsubmit = "return checkform(this);">
               <?php if($mb_id == "admin"){ ?>
-              <td><input type="checkbox" name="check_list[]" value="<?php echo $list[$i]['mb_no'] ?>"></td>
+              <td id = "checkbox"><input type="checkbox" name="check_list[]" value="<?php echo $list[$i]['mb_no'] ?>"></td>
               <?php } ?>
               <td id = "number" class = "notice"><?php echo $list[$i]['mb_no'] ?></td>
               <td id = "title" class = "notice"><a href="./board.php?number=<?php echo $list[$i]['mb_no'] ?>"><?php echo $list[$i]['mb_title'] ?></a> </td>
@@ -80,8 +74,8 @@ include("../login/connect.php");
               <td id = "date" class = "notice"><?php echo date("Y-m-d", strtotime($list[$i]['mb_post_datetime'])) ?></td>
               <td id = "see_count" class = "notice"><?php echo $list[$i]['mb_look_number'] ?></td>
               </tr>
+                <?php } ?>
         </tbody>
-          <?php } ?>
         </table>
             <div class="write">
             <?php if($mb_id == "admin"){ ?>

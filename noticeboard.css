@@ -48,6 +48,9 @@ table tr{
 #see_count{
   width : 75px;
 }
+#checkbox{
+  width : 50px;
+}
 .write{
   text-align : right;
   padding : 0 15px;
@@ -110,5 +113,5 @@ input[type=submit]{
   outline : none;
 }
 input[type=submit]:hover{
-  background : #1ad474;  
+  background : #1ad474;
 }
